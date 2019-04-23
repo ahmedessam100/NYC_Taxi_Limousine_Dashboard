@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NYC Dashboard</title>
+        <link rel="stylesheet" type="text/css" media="screen" href="templates/style.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="handler.js"></script>
+        <script src="refresher.js"></script>              
+    </head>
+
+    <body>
+        <h1>NYC Taxi & Limousine Dashboard</h1>
+        <!-- Table Per Day Table -->
+        <table id="TripsPerDay">
+            <tr>
+                    <th colspan="4">Trips per Day</th>
+            </tr>
+            <tr>
+                <th>Day</th>
+                <th>Trips</th>
+            </tr>
+        </table>
+
+        <!-- Average vehicles per day Table -->
+        <table id="VehiclesPerDay">
+                <tr>
+                        <th colspan="4">Vehicles Per Day</th>
+                </tr>
+                <tr>
+                        <th>Day</th>
+                        <th>Vehicles</th>
+                </tr>
+        </table>
+
+        <!-- Number of trips without drop-off -->
+        <table id="TripsWithoutDropOff">
+                <tr>
+                        <th colspan="4">Number of trips without drop-off</th>
+                </tr>
+                <tr>
+                        <th>Yellow</th>
+                        <th>Green</th>
+                        <th>Fhv</th>
+                </tr>
+        </table>
+
+        <!-- Minutes per trip -->
+        <table id="MinutesPerTrip">
+                <tr>
+                        <th colspan="4">Minutes per trip for each type</th>
+                </tr>
+                <tr>
+                        <th>Yellow</th>
+                        <th>Green</th>
+                        <th>Fhv</th>
+                </tr>
+        </table>
+        
+        <!-- Number of trips picked up from “Madison, Brooklyn” -->
+        <table id="TripsFromMadison">
+                <tr>
+                        <th colspan="4">Number of trips from Madison, Brooklyn</th>
+                </tr>
+                <tr>
+                        <th>Day</th>
+                        <th>Yellow</th>
+                        <th>Green</th>
+                        <th>Fhv</th>
+                </tr>
+        </table>
+    </body>
+</html>
