@@ -8,11 +8,10 @@ function refreshDashboard(delay)
 
 function refresh()
 {
-    cleanTables();
-    updateTables();
+    refreshTables();
 }
 
-function cleanTables()
+function refreshTables()
 {
     // Clean all tables to update it
     for (let i=0; i<tables.length; i++ )
@@ -23,16 +22,14 @@ function cleanTables()
         table.deleteRow(j);
         }
     }
-}
-
-function updateTables()
-{
+    // Refresh the tables
     updateTripsPerDay();
     updateVehiclesPerDay();
     updateTripsDropOff();
     updateMinutesPerTrip();
     updateTripsFromMadison();
 }
+
 
 function updateTripsPerDay()
 {
@@ -44,8 +41,6 @@ function updateTripsPerDay()
         let entry = table.insertRow(-1);
         entry.insertCell(0).innerHTML = element;
         entry.insertCell(1).innerHTML = dayTrips[element];
-        
-        console.log("TripsPerDay" + "," + element+","+dayTrips[element]+"\n");
     }
 }
 
@@ -59,9 +54,6 @@ function updateVehiclesPerDay()
         let entry = table.insertRow(-1);
         entry.insertCell(0).innerHTML = element;
         entry.insertCell(1).innerHTML = dayAvgVehicles[element];
-        
-        console.log("VehiclesPerDay"+","+element+","+dayAvgVehicles[element]+"\n");
-
     }
     
 }
@@ -77,8 +69,6 @@ function updateTripsDropOff()
     {
         entry.insertCell(i).innerHTML = tripsDropOff[element];
         i++;
-        console.log("TripsWithoutDropOff"+","+tripsDropOff[element]+"\n");
-
     }
 
 }
@@ -97,8 +87,6 @@ function updateMinutesPerTrip()
     {
         entry.insertCell(i).innerHTML = tripsTypesMinutes[element];
         i++;
-        console.log("MinutesPerTrip"+","+tripsTypesMinutes[element]+"\n");
-
     }
 }
 
@@ -122,9 +110,5 @@ function updateTripsFromMadison()
         entry.insertCell(2).innerHTML = tripsMadison[element]["green"];
         // Type Fhv
         entry.insertCell(3).innerHTML = tripsMadison[element]["fhv"];
-
-        console.log("TripsFromMadison"+","+element+tripsMadison[element]["yellow"]+tripsMadison[element]["green"]+tripsMadison[element]["fhv"]+"\n");
-
     }
-
 }

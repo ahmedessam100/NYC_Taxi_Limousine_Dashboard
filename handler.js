@@ -26,25 +26,21 @@ $(document).ready(function(){
     socket.addEventListener('message', function (event) {
         trips++;
         var data_dict = JSON.parse(event.data);
-        updateDashboard(data_dict);
+        // Pre-process the data received
+        dataPreprocessing(data_dict);
+        tripsPerDay(data_dict);
+        vehiclesPerDay(data_dict);
+        tripsWithoutDropOff(data_dict);
+        minutesPerTripByType(data_dict);
+        tripsFromMadison(data_dict);
     });
 });
 
 
-function updateDashboard(data)
-{   
-    dataPreprocessing(data);
-    tripsPerDay(data);
-    vehiclesPerDay(data);
-    tripsWithoutDropOff(data);
-    minutesPerTripByType(data);
-    tripsFromMadison(data);
-}
-
 function dataPreprocessing(data)
 {
     // Looping to extract useful information from messy data
-    for(var key in data)
+    for(let key in data)
     {   
         // Remove the single and double quotes inside the values of keys
         data[key] = data[key].replace(/[''']/g, "").replace(/["""]/g, "");
